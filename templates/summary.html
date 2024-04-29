@@ -15,15 +15,29 @@
               <p class="lead">Retrive the summary of your text.</p>
             </div>
           </div>
-
-          <form action="/analyze" method="post">
-            <textarea name="rawtext" class="form-control" rows="3" placeholder="Enter your text"></textarea>
-            <button class="btn btn-primary" type="submit" value="Submit">Submit</button>
-        </form>
     </div>
     
+    <div class="container" style="display: flex; justify-content: space-around;">
+        <p class="original_title col-sm-4">Original text</p>
+        <p class="summary_title col-sm-4">Summary</p>
+    </div>
 
+    <div class="container srt">
+        <p class="originalTxt col-sm-6">{{original_txt}}</p>
+        <div class="container col-sm-6">
+            <p class="summaryTxt col-sm-6">{{summary}}</p>
+            <button class="btn btn-success" type="submit" style="margin-left: 10px;">
+                Words : {{len_summary}}
+            </button>
+        </div>
+    </div>
 
+    <div class="container">
+        <button class="btn btn-danger" type="submit">
+            Words : {{len_orig_text}}
+        </button>
+        
+    </div>
 
       <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>

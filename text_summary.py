@@ -3,15 +3,13 @@ from spacy.lang.en.stop_words import STOP_WORDS
 from string import punctuation
 from heapq import nlargest
 
-text = input("Enter the text")
-
 def summarizer(rawdocs):
     stopwords = list(STOP_WORDS)
     # print(stopwords)
 
     nlp = spacy.load('en_core_web_sm') 
     # storing the smallest module
-    doc = nlp(text)
+    doc = nlp(rawdocs)
     # print(doc)
     tokens = [token.text for token in doc ]
     # print(tokens)
@@ -27,7 +25,7 @@ def summarizer(rawdocs):
     # print(word_freq)
 
     max_freq = max(word_freq.values())
-    print(max_freq)
+    # print(max_freq)
 
     for word in word_freq.keys():
         word_freq[word] = word_freq[word]/max_freq
@@ -57,9 +55,15 @@ def summarizer(rawdocs):
 
     final_summary = [word.text for word in summary]
     summary = ' '.join(final_summary)
-    # print("SUMMARY OF THE TEXT IS: ")
+    print("SUMMARY OF THE TEXT IS: ")
     # print(summary)
     # print("Length of original text ", len(text.split(' ')))
     # print("Length of summary text ", len(summary.split(' ')))
 
-    return summary,doc,len(rawdocs.split(' ')),len(summary.split(' '))
+    return summary,doc,len(tokens),len(summary.split(' '))
+
+if __name__ == "__main__":
+    
+    text = input("Enter the text")
+    smmary, origi, lenor, l = summarizer(text)
+    print(smmary)
